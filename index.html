@@ -91,26 +91,20 @@
           </div>
       </section>
 
-      <section class="w-11/12 mx-auto bg-gray-200 p-8 my-10 rounded-xl">
+      <!-- spinner -->
+       <section id="spinner" class="py-10 mx-auto flex justify-center items-center spin hidden">
+        <span class="loading loading-infinity loading-xl"></span>
+       </section>
+
+      <section id="wordsList" class="w-11/12 mx-auto bg-gray-200 p-8 my-10 rounded-xl">
         <div id = 'wordContainer' class="grid md:grid-cols-3 gap-10">
             <div class="text-center col-span-full my-7">
                 <p><span class="bng">আপনি এখনো কোন</span> Lesson Select <span class="bng">করেন নি</span></p>
                 <h2 class="font-semibold text-[34px] mt-3"><span class="bng">একটি</span> Lesson Select <span class="bng">করুন।</span></h2>
             </div>
-            <!-- <div class="wordCard bg-white p-6 text-center rounded-lg">
-                <h3 class="font-bold text-xl mb-3">Eager</h3>
-                <p class="mb-2">Meaning /Pronounciation</p>
-                <h4><span class="bng text-xl font-bold text-gray-700">"আগ্রহী / ইগার"</span></h4>
-                <div class="flex text-white justify-between mt-5">
-                    <button class="btn"><i class="fa-solid fa-circle-info"></i></button>
-                    <button class="btn"><i class="fa-solid fa-volume-high"></i></button>
-                </div>
-            </div> -->
         </div>
       </section>
     <!-- modal -->
-     <!-- Open the modal using ID.showModal() method -->
-<!-- <button class="btn" onclick="my_modal_5.showModal()">open modal</button> -->
 <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
   <div class="modal-box">
     <div id="word-details-container" class="space-y-2"></div>

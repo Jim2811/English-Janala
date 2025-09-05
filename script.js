@@ -1,3 +1,13 @@
+// spinner functionality
+let spinner =(status)=>{
+    if(status === true){
+        document.getElementById('spinner').classList.remove('hidden')
+        document.getElementById('wordsList').classList.add('hidden')
+    }else{
+        document.getElementById('spinner').classList.add('hidden')
+        document.getElementById('wordsList').classList.remove('hidden')
+    }
+}
 let loadLesson = () =>{
     fetch("https://openapi.programming-hero.com/api/levels/all")
     .then(res=>res.json())
@@ -16,6 +26,7 @@ let displayLesson = (lessons) =>{
 }
 // load level words
 let loadLevelWord = (id) =>{
+    spinner(true)
     let url = `https://openapi.programming-hero.com/api/level/${id}`
     fetch(url)
     .then(res => res.json())
@@ -41,35 +52,7 @@ let loadWordDetail = (id) =>{
     .then(res => res.json())
     .then(data => displayWordDetails(data.data))
 }
-/* 
-id
-: 
-5
-level
-: 
-1
-meaning
-: 
-"আগ্রহী"
-partsOfSpeech
-: 
-"adjective"
-points
-: 
-1
-pronunciation
-: 
-"ইগার"
-sentence
-: 
-"The kids were eager to open their gifts."
-synonyms
-: 
-(3) ['enthusiastic', 'excited', 'keen']
-word
-: 
-"Eager"
-*/
+
 let displayWordDetails = (data)=>{
     let word_details_container = document.getElementById('word-details-container')
     let my_modal_5 = document.getElementById('my_modal_5')
@@ -118,8 +101,9 @@ let displayLevelWords = (words)=> {
                 <h2 class="font-semibold text-[34px] mt-3"><span class="bng">নেক্সট Lesson এ যান</span></h2>
             </div>
         `
-        return
-    };
+        spinner(false)
+    return
+};
     // display word meanings
     for (const word of words) {
         let card = document.createElement('div')
@@ -136,5 +120,6 @@ let displayLevelWords = (words)=> {
         `
         wordContainer.append(card)
     }
+    spinner(false)
 }
 loadLesson()
