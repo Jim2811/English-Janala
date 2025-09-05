@@ -16,9 +16,27 @@ let displayLesson = (lessons) =>{
 }
 // load level words
 let loadLevelWord = (id) =>{
-    let url = `https://openapi.programming-hero.com/api/word/${id}`
+    let url = `https://openapi.programming-hero.com/api/level/${id}`
     fetch(url)
     .then(res => res.json())
-    .then(data => displayLevelWords(data))
+    .then(data => displayLevelWords(data.data))
+}
+let displayLevelWords = (words)=> {
+    let wordContainer = document.getElementById('wordContainer');
+    wordContainer.innerHTML =''
+    for (const word of words) {
+        console.log(word);
+        let card = document.createElement('div')
+        card.innerHTML = `
+            <div id = 'wordContainer'>
+            <div class="wordCard bg-white p-6 text-center rounded-lg">
+                <h3 class="font-bold text-xl mb-3">${word.word}</h3>
+                <p class="mb-2">Meaning /Pronounciation</p>
+                <h4><span class="bng text-xl font-bold text-gray-700">"${word.meaning} / ${word.pronunciation}"</span></h4>
+            </div>
+        </div>
+        `
+        wordContainer.append(card)
+    }
 }
 loadLesson()
