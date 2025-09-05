@@ -37,11 +37,13 @@
                                 d="M4 6h16M4 12h8m-8 6h16" />
                         </svg>
                     </div>
-                    <ul tabindex="0" class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow space-y-2">
+                    <ul tabindex="0"
+                        class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow space-y-2">
                         <li><a class="btn btn-outline btn-primary" href=""><i class="fa-solid fa-circle-question"></i>
                                 FAQ</a>
                         </li>
-                        <li><a class="btn btn-outline btn-primary" href=""><i class="fa-solid fa-book-open"></i> Learn</a>
+                        <li><a class="btn btn-outline btn-primary" href=""><i class="fa-solid fa-book-open"></i>
+                                Learn</a>
                         </li>
                         <li><a class="btn btn-outline btn-primary" href=""><i
                                     class="fa-solid fa-arrow-right-from-bracket"></i>
@@ -56,66 +58,90 @@
                 </a>
             </div>
             <div class="navbar-end hidden lg:flex">
-    
+
                 <ul class="menu menu-horizontal px-1 flex space-x-3">
-                    <li><a class="btn btn-outline btn-primary" href=""><i class="fa-solid fa-circle-question"></i> FAQ</a>
+                    <li><a class="btn btn-outline btn-primary" href=""><i class="fa-solid fa-circle-question"></i>
+                            FAQ</a>
                     </li>
-                    <li><a class="btn btn-outline btn-primary" href=""><i class="fa-solid fa-book-open"></i> Learn</a></li>
-                    <li><a class="btn btn-outline btn-primary" href=""><i class="fa-solid fa-arrow-right-from-bracket"></i>
+                    <li><a class="btn btn-outline btn-primary" href=""><i class="fa-solid fa-book-open"></i> Learn</a>
+                    </li>
+                    <li><a class="btn btn-outline btn-primary" href=""><i
+                                class="fa-solid fa-arrow-right-from-bracket"></i>
                             Logout</a></li>
                 </ul>
             </div>
-    
+
         </div>
     </header>
 
     <!-- section 1 -->
-     <section class="flex justify-between gap-5 items-center py-5 w-11/12 mx-auto flex-col-reverse justify-center md:flex-row">
+    <section
+        class="flex justify-between gap-5 items-center py-5 w-11/12 mx-auto flex-col-reverse justify-center md:flex-row">
         <div class="content flex-1 text-center md:text-left">
             <h1 class="text-4xl mb-8 font-bold">
                 <span class="text-[#00bcff]">English</span> is Easy!!
             </h1>
             <p class="bng text-xl md:pr-4">
-                আজ থেকেই আপনার ভাষা শেখার যাত্রা শুরু করুন। আপনি যদি নতুন হন অথবা আপনার দক্ষতা বাড়াতে চান, আমাদের Interactive Lessons আপনাকে নিয়ে যাবে অন্য একটি Level এ
+                আজ থেকেই আপনার ভাষা শেখার যাত্রা শুরু করুন। আপনি যদি নতুন হন অথবা আপনার দক্ষতা বাড়াতে চান, আমাদের
+                Interactive Lessons আপনাকে নিয়ে যাবে অন্য একটি Level এ
             </p>
         </div>
         <div class="background flex-1">
             <img src="assets/hero-student.png" alt="">
         </div>
-     </section>
-     <!-- lets learn section -->
-      <section class="text-center">
-          <h2 class="text-4xl mb-8 font-bold"><span class="text-[#00bcff]">Let's</span> Learn Vocabularies</h2>
-          <div id="levelContainer" class="flex justify-center gap-4 flex-wrap mb-5">
+    </section>
+    <!-- lets learn section -->
+    <section class="text-center">
+        <h2 class="text-4xl mb-8 font-bold"><span class="text-[#00bcff]">Let's</span> Learn Vocabularies</h2>
+        <div id="levelContainer" class="flex justify-center gap-4 flex-wrap mb-5">
 
-          </div>
-      </section>
-
-      <!-- spinner -->
-       <section id="spinner" class="py-10 mx-auto flex justify-center items-center spin hidden">
+        </div>
+    </section>
+    <!-- search -->
+    <section id="SearchFeature" class="flex justify-center">
+        <div class="join">
+            <div>
+                <label class="input validator join-item">
+                    <svg class="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2.5" fill="none"
+                            stroke="currentColor">
+                            <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                        </g>
+                    </svg>
+                    <input type="text" placeholder="Search" id="searchVal"/>
+                </label>
+            </div>
+            <button class="btn btn-primary join-item" id="btn-srch">Search</button>
+        </div>
+    </section>
+    <!-- spinner -->
+    <section id="spinner" class="py-10 mx-auto flex justify-center items-center spin hidden">
         <span class="loading loading-infinity loading-xl"></span>
-       </section>
+    </section>
 
-      <section id="wordsList" class="w-11/12 mx-auto bg-gray-200 p-8 my-10 rounded-xl">
-        <div id = 'wordContainer' class="grid md:grid-cols-3 gap-10">
+    <section id="wordsList" class="w-11/12 mx-auto bg-gray-200 p-8 my-10 rounded-xl">
+        <div id='wordContainer' class="grid md:grid-cols-3 gap-10">
             <div class="text-center col-span-full my-7">
                 <p><span class="bng">আপনি এখনো কোন</span> Lesson Select <span class="bng">করেন নি</span></p>
-                <h2 class="font-semibold text-[34px] mt-3"><span class="bng">একটি</span> Lesson Select <span class="bng">করুন।</span></h2>
+                <h2 class="font-semibold text-[34px] mt-3"><span class="bng">একটি</span> Lesson Select <span
+                        class="bng">করুন।</span></h2>
             </div>
         </div>
-      </section>
+    </section>
     <!-- modal -->
-<dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
-  <div class="modal-box">
-    <div id="word-details-container" class="space-y-2"></div>
-    <div class="modal-action">
-      <form method="dialog">
-        <!-- if there is a button in form, it will close the modal -->
-        <button class="btn">Close</button>
-      </form>
-    </div>
-  </div>
-</dialog>
+    <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
+        <div class="modal-box">
+            <div id="word-details-container" class="space-y-2"></div>
+            <div class="modal-action">
+                <form method="dialog">
+                    <!-- if there is a button in form, it will close the modal -->
+                    <button class="btn btn-primary">Close</button>
+                </form>
+            </div>
+        </div>
+    </dialog>
     <script src="script.js"></script>
 </body>
+
 </html>

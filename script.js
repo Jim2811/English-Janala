@@ -122,4 +122,20 @@ let displayLevelWords = (words)=> {
     }
     spinner(false)
 }
+// search features
+document.getElementById('btn-srch').addEventListener('click',
+    ()=>{
+        removeActive()
+        let input = document.getElementById('searchVal').value.trim().toLowerCase()
+        let url = 'https://openapi.programming-hero.com/api/words/all'
+        fetch(url)
+        .then(res => res.json())
+        .then(json => {
+            let allWords = json.data
+            let filtering = allWords.filter(word => word.word.toLowerCase().includes(input))
+            // console.log(filtering);
+            displayLevelWords(filtering)
+        })
+    }
+)
 loadLesson()
