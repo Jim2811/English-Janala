@@ -34,7 +34,78 @@ let removeActive = () =>{
         btn.classList.remove('active')
     })
 }
-
+// load word detail by clicking the info button
+let loadWordDetail = (id) =>{
+    let url = `https://openapi.programming-hero.com/api/word/${id}`
+    fetch(url)
+    .then(res => res.json())
+    .then(data => displayWordDetails(data.data))
+}
+/* 
+id
+: 
+5
+level
+: 
+1
+meaning
+: 
+"আগ্রহী"
+partsOfSpeech
+: 
+"adjective"
+points
+: 
+1
+pronunciation
+: 
+"ইগার"
+sentence
+: 
+"The kids were eager to open their gifts."
+synonyms
+: 
+(3) ['enthusiastic', 'excited', 'keen']
+word
+: 
+"Eager"
+*/
+let displayWordDetails = (data)=>{
+    let word_details_container = document.getElementById('word-details-container')
+    let my_modal_5 = document.getElementById('my_modal_5')
+    my_modal_5.showModal()
+    // load synonyms
+    let createElements = (arr) =>{
+        if(arr.length > 0){
+            let htmlElement= arr.map((el)=> `<span class='btn'>${el}</span>`)
+            console.log(htmlElement);
+            return htmlElement.join(" ") 
+        }
+        else{
+            let somarthok = 'কোন সমার্থক শব্দ পাওয়া যায়নি';
+            return somarthok
+        }
+    }
+    word_details_container.innerHTML = `
+    <div>
+            <h2 class="font-bold text-2xl">${data.word} (<i class="fa-solid fa-microphone-lines"></i>:${data.pronunciation ?data.pronunciation: 'প্রনাউন্সিয়েশন পাওয়া যায়নি' })</h2>
+        </div>
+        <div>
+            <p class="font-bold">Meaning</p>
+            <p class="bng">${data.meaning ? data.meaning : 'অর্থ পাওয়া যায়নি'}</p>
+        </div>
+        <div>
+            <p class="font-bold">Example</p>
+            <p>${data.sentence? data.sentence : 'বাক্য পাওয়া যায়নি'}</p>
+        </div>
+        <div>
+            <p class="font-bold bng">সমার্থক শব্দ গুলো</p>
+            <div class="flex flex-wrap gap-2">
+                ${createElements(data.synonyms)}
+            </div>
+        </div>
+    `
+}
 // display level words
 let displayLevelWords = (words)=> {
     let wordContainer = document.getElementById('wordContainer');
@@ -58,7 +129,7 @@ let displayLevelWords = (words)=> {
                 <p class="mb-2">Meaning /Pronounciation</p>
                 <h4><span class="bng text-xl font-bold text-gray-700">"${word.meaning ? word.meaning: 'অর্থ পাওয়া যায়নি' } / ${word.pronunciation ?word.pronunciation : 'উচ্চারণ পাওয়া যায়নি' }"</span></h4>
                 <div class="flex text-white justify-between mt-5">
-                        <button class="btn"><i class="fa-solid fa-circle-info"></i></button>
+                        <button class="btn" onclick="loadWordDetail(${word.id})"><i class="fa-solid fa-circle-info"></i></button>
                         <button class="btn"><i class="fa-solid fa-volume-high"></i></button>
                 </div>
             </div>
