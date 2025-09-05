@@ -9,7 +9,7 @@ let displayLesson = (lessons) =>{
     for (const lesson of lessons) {
         let levelBox = document.createElement('div')
         levelBox.innerHTML = `
-        <button onclick= "loadLevelWord('${lesson.level_no}')" class="btn btn-outline btn-primary" href=""><i class="fa-solid fa-book-open"></i> Lesson - ${lesson.level_no}</button>
+        <button id ="lessonBtn-${lesson.level_no}" onclick= "loadLevelWord('${lesson.level_no}')" class="btn btn-outline btn-primary lesson-Btn" href=""><i class="fa-solid fa-book-open"></i> Lesson - ${lesson.level_no}</button>
         `
         levelContainer.appendChild(levelBox)
     }
@@ -19,8 +19,23 @@ let loadLevelWord = (id) =>{
     let url = `https://openapi.programming-hero.com/api/level/${id}`
     fetch(url)
     .then(res => res.json())
-    .then(data => displayLevelWords(data.data))
+    .then(data => {
+        removeActive()
+        let lessonBtn = document.getElementById(`lessonBtn-${id}`)
+        lessonBtn.classList.add('active')
+        displayLevelWords(data.data)
+    })
 }
+// remove active class from lesson buttons
+let removeActive = () =>{
+    let lessonBtnn = document.querySelectorAll('.lesson-Btn')
+    // console.log(lessonBtnn);
+    lessonBtnn.forEach((btn)=>{
+        btn.classList.remove('active')
+    })
+}
+
+// display level words
 let displayLevelWords = (words)=> {
     let wordContainer = document.getElementById('wordContainer');
     wordContainer.innerHTML =''
@@ -34,6 +49,7 @@ let displayLevelWords = (words)=> {
         `
         return
     };
+    // display word meanings
     for (const word of words) {
         let card = document.createElement('div')
         card.innerHTML = `
