@@ -28,13 +28,15 @@ let displayLevelWords = (words)=> {
         console.log(word);
         let card = document.createElement('div')
         card.innerHTML = `
-            <div id = 'wordContainer'>
             <div class="wordCard bg-white p-6 text-center rounded-lg">
                 <h3 class="font-bold text-xl mb-3">${word.word}</h3>
                 <p class="mb-2">Meaning /Pronounciation</p>
                 <h4><span class="bng text-xl font-bold text-gray-700">"${word.meaning} / ${word.pronunciation}"</span></h4>
+                <div class="flex text-white justify-between mt-5">
+                        <button class="btn"><i class="fa-solid fa-circle-info"></i></button>
+                        <button class="btn"><i class="fa-solid fa-volume-high"></i></button>
+                </div>
             </div>
-        </div>
         `
         wordContainer.append(card)
     }
