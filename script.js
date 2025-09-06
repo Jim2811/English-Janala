@@ -153,7 +153,7 @@ let minusPlus =()=>{
     minus.forEach((e, index) =>{
         e.addEventListener('click', ()=>{
             e.classList.add('hidden')
-            minus[index].classList.add('hidden')
+            plus[index].classList.remove('hidden')
             answer[index].classList.add('hidden')
         })
     })
