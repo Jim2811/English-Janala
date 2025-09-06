@@ -138,4 +138,25 @@ document.getElementById('btn-srch').addEventListener('click',
         })
     }
 )
+// minus plus function 
+let minusPlus =()=>{
+    let plus = document.querySelectorAll('.plus')
+    let minus = document.querySelectorAll('.minus')
+    let answer = document.querySelectorAll('.answer')
+    plus.forEach((e, index) =>{
+        e.addEventListener('click', ()=>{
+            e.classList.add('hidden')
+            minus[index].classList.remove('hidden')
+            answer[index].classList.remove('hidden')
+        })
+    })
+    minus.forEach((e, index) =>{
+        e.addEventListener('click', ()=>{
+            e.classList.add('hidden')
+            minus[index].classList.add('hidden')
+            answer[index].classList.add('hidden')
+        })
+    })
+}
+minusPlus()
 loadLesson()
